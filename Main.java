@@ -9,13 +9,14 @@ public class Main {
         Movie m3 = new Movie("Ogey Ana", "Habib İsmailov", 1958, 81);
         System.out.println(m3);
 
-
         MovieDatabase mBase1 = new MovieDatabase();
 
         mBase1.addMovie(m1);
         mBase1.addMovie(m2);
         mBase1.addMovie(m3);
-
+        
+        mBase1.addMovie(m1);
+        
         Movie retrievedMovie = mBase1.retrieveMovie("Tutek sesi");
 
         if (retrievedMovie != null) {
