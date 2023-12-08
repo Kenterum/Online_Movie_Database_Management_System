@@ -15,7 +15,10 @@ public class MovieDatabase {
         } else {
             System.out.println("Movie is already existing in the database: "+movie.getTitle());
         }
+
     }
+
+    
 
     public void removeMovie(Movie movie) {
         if (movies.contains(movie)) {
