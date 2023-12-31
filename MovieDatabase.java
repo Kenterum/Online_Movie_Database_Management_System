@@ -40,9 +40,7 @@ public class MovieDatabase {
         }
     }
 
-
-
-    public void removeMovie(Movie movie) {
+      public void removeMovie(Movie movie) {
        
             if (movies.contains(movie)) {
                 try {
@@ -89,5 +87,9 @@ public class MovieDatabase {
         return movies.stream()
                 .mapToInt(Movie::getRunningTime)
                 .sum();
+    }
+
+    public String getMovies() {
+        return null;
     }
 }
