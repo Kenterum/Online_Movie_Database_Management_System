@@ -1,14 +1,9 @@
-<<<<<<< HEAD
-import java.util.ArrayList;
-import java.util.List;
-=======
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
->>>>>>> a0bd42e0de3a229e014953238e23151323936fba
 
 public class MovieDatabase {
     private List<Movie> movies;
@@ -16,40 +11,8 @@ public class MovieDatabase {
     public MovieDatabase() {
         this.movies = new ArrayList<>();
     }
-<<<<<<< HEAD
 
-    public void addMovie(Movie movie) {
-        if (movies.contains(movie) == false) {
-            movies.add(movie);
-            System.out.println("Movie is added to database: "+movie.getTitle());
-        } else {
-            System.out.println("Movie is already existing in the database: "+movie.getTitle());
-        }
-
-    }
-
-    
-
-    public void removeMovie(Movie movie) {
-        if (movies.contains(movie)) {
-            movies.remove(movie);
-            System.out.println("Movie is removed from database: "+movie.getTitle());
-        } else {
-            System.out.println("Movie is not found in the database: "+movie.getTitle());
-        }
-    }
-
-    public Movie retrieveMovie(String title) {
-        for (Movie movie : movies) {
-            if (movie.getTitle().equals(title)) {
-                return movie;
-            }
-        }
-        return null;
-    }
-}
-=======
-     private static final String CSV_FILE_PATH = "movies.csv";
+    private static final String CSV_FILE_PATH = "movies.csv";
 
     public void addMovie(Movie movie) {
         try {
@@ -78,20 +41,20 @@ public class MovieDatabase {
         }
     }
 
-      public void removeMovie(Movie movie) {
-       
-            if (movies.contains(movie)) {
-                try {
-                    movies.remove(movie);
-                } catch (Exception e) {
-                    System.out.println(e);
-                }
-              
-                System.out.println("Movie is removed from the database: " + movie.getTitle());
-            } else {
-                System.out.println("Movie is not found in the database: " + movie.getTitle());
+    public void removeMovie(Movie movie) {
+
+        if (movies.contains(movie)) {
+            try {
+                movies.remove(movie);
+            } catch (Exception e) {
+                System.out.println(e);
             }
-        
+
+            System.out.println("Movie is removed from the database: " + movie.getTitle());
+        } else {
+            System.out.println("Movie is not found in the database: " + movie.getTitle());
+        }
+
     }
 
     public Movie retrieveMovie(String title) {
@@ -106,8 +69,6 @@ public class MovieDatabase {
         }
         return null;
     }
-
-   
 
     public List<Movie> getMoviesSortedByTitle() {
         return movies.stream()
@@ -131,4 +92,3 @@ public class MovieDatabase {
         return null;
     }
 }
->>>>>>> a0bd42e0de3a229e014953238e23151323936fba
