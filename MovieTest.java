@@ -16,6 +16,7 @@ public class MovieTest extends MovieDatabase {
         mBase.addMovie(new Movie("Ogey Ana", "Habib İsmailov", 1958, 81));
         // Manually remove a movie and print results
         System.out.println("\nTesting removeMovie() method:");
+
         Movie m = new Movie(null, null, 0, 0);
         mBase.removeMovie(m);
         // Print some confirmation or details here
@@ -32,7 +33,9 @@ public class MovieTest extends MovieDatabase {
         Movie retrievedMovie = mBase.retrieveMovie("Tutek sesi");
         if (retrievedMovie != null) {
             System.out.println("Retrieved Movie: " + retrievedMovie);
-        } else {
+        } 
+        else 
+        {
             System.out.println("Movie not found.");
 }
     }
