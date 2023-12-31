@@ -3,7 +3,7 @@ import javax.swing.*;
 public class Main {
     public static void main(String[] args) {
         MovieTest mBase = new MovieTest();
-        
+
         // Test Add
         MovieTest.testAdd(mBase);
 

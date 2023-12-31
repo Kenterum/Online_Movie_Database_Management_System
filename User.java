@@ -3,7 +3,7 @@ import java.io.*;
 public class User {
     private String username;
     private String password;
-    
+
     public User(String username, String password) {
         this.username = username;
         this.password = password;
@@ -26,14 +26,13 @@ public class User {
     }
 
     public void saveUser() throws IOException {
-        System.out.println("Saving user: " + username); 
+        System.out.println("Saving user: " + username);
         try (BufferedWriter bw = new BufferedWriter(new FileWriter("data/users.csv", true))) {
             bw.write(username + "," + password);
             bw.newLine();
-            System.out.println("User saved."); 
+            System.out.println("User saved.");
         }
     }
-    
 
     public static boolean validateLogin(String username, String password) throws IOException {
         try (BufferedReader br = new BufferedReader(new FileReader("data/users.csv"))) {
@@ -47,5 +46,5 @@ public class User {
         }
         return false;
     }
-    
+
 }
