@@ -4,7 +4,7 @@ public class MovieDatabaseTest extends MovieTest {
         MovieTest movieTest = new MovieTest();
 
         // Test addMovie method
-        testAdd(movieTest); 
+        testAdd(movieTest);
 
         // Test removeMovie method
         testRemove(movieTest);

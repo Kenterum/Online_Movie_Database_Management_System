@@ -10,9 +10,9 @@ public class UserTest {
 
     public static void testUserLogin() {
         System.out.println("\nTesting User Login:");
-        validateLogin("testUser", "testPassword"); //Expected Output: Success
-        validateLogin("testUser", "wrongPassword"); //Expected Output: Fail
-        validateLogin("nonExistingUser", "testPassword"); //Expected Output: Fail
+        validateLogin("testUser", "testPassword"); // Expected Output: Success
+        validateLogin("testUser", "wrongPassword"); // Expected Output: Fail
+        validateLogin("nonExistingUser", "testPassword"); // Expected Output: Fail
     }
 
     private static void createAndTestUser(String username, String password) {
