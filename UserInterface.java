@@ -79,6 +79,11 @@ public class UserInterface extends JFrame {
         try {
             if (User.validateLogin(username, password)) {
                 JOptionPane.showMessageDialog(this, "Login successful!");
+                dispose();
+                EventQueue.invokeLater(() -> {
+                    MainInterface mainInterface = new MainInterface(username, movieDatabase);
+                    mainInterface.setVisible(true);
+                });
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid username or password.");
             }
