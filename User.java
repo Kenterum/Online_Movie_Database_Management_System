@@ -47,4 +47,16 @@ public class User {
         return false;
     }
 
+    public static boolean userExists(String username) throws IOException {
+        try (BufferedReader br = new BufferedReader(new FileReader("data/users.csv"))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] userDetails = line.split(",");
+                if (userDetails[0].equals(username)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }

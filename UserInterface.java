@@ -92,9 +92,13 @@ public class UserInterface extends JFrame {
         String username = usernameField.getText();
         String password = new String(passwordField.getPassword());
 
-        User newUser = new User(username, password);
-
         try {
+            if (User.userExists(username)) {
+                JOptionPane.showMessageDialog(this, "Username already exists. Please choose another.");
+                return;
+            }
+
+            User newUser = new User(username, password);
             newUser.saveUser();
             JOptionPane.showMessageDialog(this, "Registration successful!");
         } catch (IOException e) {
