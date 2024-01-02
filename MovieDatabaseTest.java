@@ -1,15 +1,29 @@
 public class MovieDatabaseTest extends MovieTest {
     public static void main(String[] args) {
-        // Create an instance of MovieTest for testing
-        MovieTest movieTest = new MovieTest();
+        // Create an instance of MovieDatabase for testing
+        MovieDatabase movieDatabase = new MovieDatabase();
+
+        // Create an instance of MovieDatabaseTest for testing
+        MovieDatabaseTest movieDatabaseTest = new MovieDatabaseTest();
 
         // Test addMovie method
-        testAdd(movieTest);
+        movieDatabaseTest.testAdd(movieDatabase);
 
         // Test removeMovie method
-        testRemove(movieTest);
+        movieDatabaseTest.testRemove(movieDatabase);
 
         // Test retrieveMovie method
-        testRetrieve(movieTest);
+        movieDatabaseTest.testRetrieve(movieDatabase);
+
+        // Test getMoviesSortedByReleaseYear method (Ascending)
+        movieDatabaseTest.testGetMoviesSortedByReleaseYear(movieDatabase, true);
+
+        // Test getMoviesSortedByReleaseYear method (Descending)
+        movieDatabaseTest.testGetMoviesSortedByReleaseYear(movieDatabase, false);
+
+        // Test getMoviesSortedByTitle method
+        movieDatabaseTest.testGetMoviesSortedByTitle(movieDatabase);
+
+        // Additional tests specific to MovieDatabase can be added here
     }
 }
