@@ -1,6 +1,7 @@
 package MDMS;
 
 import MDMS.src.MovieDatabase;
+import MDMS.test.MovieTest;
 
 public class MovieDatabaseTest extends MovieTest {
     public static void main(String[] args) {

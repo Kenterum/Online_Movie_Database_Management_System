@@ -1,4 +1,4 @@
-package MDMS.test;
+package MDMS;
 
 import java.io.IOException;
 
