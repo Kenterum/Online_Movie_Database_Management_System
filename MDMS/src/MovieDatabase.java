@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 public class MovieDatabase {
     private List<Movie> movies;
-    private static final String CSV_FILE_PATH = "data/movies.csv";
+    private static final String CSV_FILE_PATH = "MDMS/data/movies.csv";
 
     public MovieDatabase() {
         this.movies = new ArrayList<>();
