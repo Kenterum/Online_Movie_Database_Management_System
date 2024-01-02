@@ -11,10 +11,10 @@ public class Movie implements Serializable {
 
         this.director = director;
 
-        if (releaseYear >= 1800 && releaseYear <= 2100) {
+        if (releaseYear > 0) {
             this.releaseYear = releaseYear;
         } else {
-            System.out.println("Invalid release year. Release year must be between 1800 and 2100.");
+            System.out.println("Invalid release year. Release year must be greater than 0");
         }
 
         if (runningTime > 0) {
@@ -61,9 +61,5 @@ public class Movie implements Serializable {
         return "Movie [title=" + title + ", director=" + director + ", releaseYear=" + releaseYear + ", runningTime="
                 + runningTime + "]\n";
     }
-
-    
-
-    
 
 }

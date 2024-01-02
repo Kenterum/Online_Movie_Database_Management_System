@@ -148,7 +148,36 @@ public class MainInterface extends JFrame {
     }
 
     private void filterData() {
-        // Feature Work
+        Object[] options = { "Running Time: From Shortest to Longest ", "Running Time From Longest to Shortest",
+                "Release Year From Old to New",
+                "Release Year From New to Old" };
+        int choice = JOptionPane.showOptionDialog(this, "Choose filter option:",
+                "Filter Movies", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE,
+                null, options, options[0]);
+
+        List<Movie> filteredMovies;
+        switch (choice) {
+            case 0: // Running Time Ascending
+                filteredMovies = movieDatabase.getMoviesSortedByRunningTime(true);
+                break;
+            case 1: // Running Time Descending
+                filteredMovies = movieDatabase.getMoviesSortedByRunningTime(false);
+                break;
+            case 2: // Release Year Ascending
+                filteredMovies = movieDatabase.getMoviesSortedByReleaseYear(true);
+                break;
+            case 3: // Release Year Descending
+                filteredMovies = movieDatabase.getMoviesSortedByReleaseYear(false);
+                break;
+            default:
+                return;
+        }
+
+        tableModel.setRowCount(0);
+        for (Movie movie : filteredMovies) {
+            tableModel.addRow(new Object[] { movie.getTitle(), movie.getDirector(), movie.getReleaseYear(),
+                    movie.getRunningTime() });
+        }
     }
 
     private void removeSelectedMovie() {

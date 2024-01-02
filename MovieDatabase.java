@@ -69,6 +69,7 @@ public class MovieDatabase {
             System.out.println("Movie not found in database: " + movie.getTitle());
         }
     }
+    // Filter the movie
 
     // Rewrite the entire CSV after a movie has been removed to keep it updated.
     private void rewriteCSV() {
@@ -90,6 +91,30 @@ public class MovieDatabase {
                 .filter(movie -> movie.getTitle().equals(title))
                 .findFirst()
                 .orElse(null);
+    }
+
+    public List<Movie> getMoviesSortedByRunningTime(boolean ascending) {
+        Comparator<Movie> comparator = Comparator.comparingInt(Movie::getRunningTime)
+                .thenComparing(Movie::getTitle);
+        if (!ascending) {
+            comparator = comparator.reversed();
+        }
+
+        return movies.stream()
+                .sorted(comparator)
+                .collect(Collectors.toList());
+    }
+
+    public List<Movie> getMoviesSortedByReleaseYear(boolean ascending) {
+        Comparator<Movie> comparator = Comparator.comparingInt(Movie::getReleaseYear)
+                .thenComparing(Movie::getTitle);
+        if (!ascending) {
+            comparator = comparator.reversed();
+        }
+
+        return movies.stream()
+                .sorted(comparator)
+                .collect(Collectors.toList());
     }
 
     public List<Movie> getMoviesSortedByTitle() {
