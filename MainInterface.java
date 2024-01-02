@@ -2,9 +2,11 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.Dialog.ModalityType;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent; // Used for ActionListener on buttons
+import java.awt.event.ActionListener; // Used for ActionListener on buttons
 import java.util.List;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener; // Used for real-time search functionality
 
 public class MainInterface extends JFrame {
 
@@ -30,8 +32,22 @@ public class MainInterface extends JFrame {
         // Top panel with search bar and filter icon
         JPanel topPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         searchField = new JTextField(20);
+        searchField.getDocument().addDocumentListener(new DocumentListener() {
+            public void insertUpdate(DocumentEvent e) {
+                searchMovies();
+            }
+
+            public void removeUpdate(DocumentEvent e) {
+                searchMovies();
+            }
+
+            public void changedUpdate(DocumentEvent e) {
+                searchMovies();
+            }
+        });
+
         JButton filterButton = new JButton("Filter");
-        filterButton.addActionListener(e -> filterData());
+        filterButton.addActionListener(e -> filterData()); // Call filterData when button is clicked
         topPanel.add(searchField);
         topPanel.add(filterButton);
 
@@ -50,12 +66,12 @@ public class MainInterface extends JFrame {
         tableModel = new DefaultTableModel(new String[] { "Title", "Director", "Release Year", "Running Time" }, 0) {
             @Override
             public boolean isCellEditable(int row, int column) {
-                return false;
+                return false; // Make table cells non-editable
             }
         };
 
         movieTable = new JTable(tableModel);
-        movieTable.getTableHeader().setReorderingAllowed(false);
+        movieTable.getTableHeader().setReorderingAllowed(false); // Fix columns so they can't be moved
 
         JScrollPane scrollPane = new JScrollPane(movieTable);
         add(scrollPane, BorderLayout.CENTER);
@@ -74,11 +90,22 @@ public class MainInterface extends JFrame {
         setVisible(true);
     }
 
+    private void searchMovies() {
+        String searchText = searchField.getText().toLowerCase();
+        List<Movie> filteredMovies = movieDatabase.searchMovies(searchText);
+
+        tableModel.setRowCount(0); // Clear existing table
+        for (Movie movie : filteredMovies) {
+            tableModel.addRow(new Object[] { movie.getTitle(), movie.getDirector(), movie.getReleaseYear(),
+                    movie.getRunningTime() });
+        }
+    }
+
     private void loadDataFromDatabase() {
         List<Movie> movies = movieDatabase.getMoviesSortedByTitle();
         for (Movie movie : movies) {
-            tableModel.addRow(new Object[] { movie.getTitle(), movie.getDirector(),
-                    movie.getReleaseYear(), movie.getRunningTime() });
+            tableModel.addRow(new Object[] { movie.getTitle(), movie.getDirector(), movie.getReleaseYear(),
+                    movie.getRunningTime() });
         }
     }
 
@@ -148,9 +175,8 @@ public class MainInterface extends JFrame {
     }
 
     private void filterData() {
-        Object[] options = { "Running Time: From Shortest to Longest ", "Running Time From Longest to Shortest",
-                "Release Year From Old to New",
-                "Release Year From New to Old" };
+        Object[] options = { "Running Time: Shortest to Longest", "Running Time: Longest to Shortest",
+                "Release Year: Oldest to Newest", "Release Year: Newest to Oldest" };
         int choice = JOptionPane.showOptionDialog(this, "Choose filter option:",
                 "Filter Movies", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE,
                 null, options, options[0]);
@@ -173,7 +199,7 @@ public class MainInterface extends JFrame {
                 return;
         }
 
-        tableModel.setRowCount(0);
+        tableModel.setRowCount(0); // Clear existing table
         for (Movie movie : filteredMovies) {
             tableModel.addRow(new Object[] { movie.getTitle(), movie.getDirector(), movie.getReleaseYear(),
                     movie.getRunningTime() });

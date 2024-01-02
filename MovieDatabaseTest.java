@@ -7,13 +7,13 @@ public class MovieDatabaseTest extends MovieTest {
         MovieDatabaseTest movieDatabaseTest = new MovieDatabaseTest();
 
         // Test addMovie method
-        movieDatabaseTest.testAdd(movieDatabase);
+        MovieTest.testAdd(movieDatabase);
 
         // Test removeMovie method
-        movieDatabaseTest.testRemove(movieDatabase);
+        MovieTest.testRemove(movieDatabase);
 
         // Test retrieveMovie method
-        movieDatabaseTest.testRetrieve(movieDatabase);
+        MovieTest.testRetrieve(movieDatabase);
 
         // Test getMoviesSortedByReleaseYear method (Ascending)
         movieDatabaseTest.testGetMoviesSortedByReleaseYear(movieDatabase, true);

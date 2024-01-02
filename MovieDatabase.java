@@ -105,6 +105,15 @@ public class MovieDatabase {
                 .collect(Collectors.toList());
     }
 
+    public List<Movie> searchMovies(String searchText) {
+        return movies.stream()
+                .filter(movie -> movie.getTitle().toLowerCase().contains(searchText) ||
+                        movie.getDirector().toLowerCase().contains(searchText) ||
+                        String.valueOf(movie.getReleaseYear()).contains(searchText) ||
+                        String.valueOf(movie.getRunningTime()).contains(searchText))
+                .collect(Collectors.toList());
+    }
+
     public List<Movie> getMoviesSortedByReleaseYear(boolean ascending) {
         Comparator<Movie> comparator = Comparator.comparingInt(Movie::getReleaseYear)
                 .thenComparing(Movie::getTitle);
