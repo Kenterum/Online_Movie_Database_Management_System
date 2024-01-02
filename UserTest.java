@@ -1,4 +1,5 @@
-package test;
+import java.io.IOException;
+
 public class UserTest {
 
     public static void testUserRegistration() {
