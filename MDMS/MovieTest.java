@@ -1,4 +1,9 @@
+package MDMS;
+
 import java.util.List;
+
+import MDMS.src.Movie;
+import MDMS.src.MovieDatabase;
 
 public class MovieTest extends MovieDatabase {
 
@@ -40,7 +45,7 @@ public class MovieTest extends MovieDatabase {
         }
     }
 
-     public void testGetMoviesSortedByReleaseYear(MovieDatabase movieDatabase, boolean ascending) {
+    public void testGetMoviesSortedByReleaseYear(MovieDatabase movieDatabase, boolean ascending) {
         // Test getMoviesSortedByReleaseYear method
         List<Movie> sortedMovies = movieDatabase.getMoviesSortedByReleaseYear(ascending);
 

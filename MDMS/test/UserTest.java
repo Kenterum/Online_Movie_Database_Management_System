@@ -1,4 +1,8 @@
+package MDMS.test;
+
 import java.io.IOException;
+
+import MDMS.src.User;
 
 public class UserTest {
 

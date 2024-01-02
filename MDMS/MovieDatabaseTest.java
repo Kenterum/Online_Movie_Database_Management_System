@@ -1,3 +1,7 @@
+package MDMS;
+
+import MDMS.src.MovieDatabase;
+
 public class MovieDatabaseTest extends MovieTest {
     public static void main(String[] args) {
         // Create an instance of MovieDatabase for testing
