@@ -25,7 +25,7 @@ public class MovieTest extends MovieDatabase {
 
     }
 
-    public static void testRetrieve(MovieTest mBase) {
+    public static void testRetrieve(MovieDatabase mBase) {
         // Manually adding movies
         mBase.addMovie(new Movie("Inception", "Christopher Nolan", 2010, 148));
         mBase.addMovie(new Movie("Tutek sesi", "Rasim Ocagov", 1975, 82));
