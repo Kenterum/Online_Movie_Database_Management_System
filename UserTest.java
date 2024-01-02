@@ -2,10 +2,16 @@ import java.io.IOException;
 
 public class UserTest {
 
+    public static void main(String[] args) {
+        testUserRegistration();
+        testUserLogin();
+    }
+
     public static void testUserRegistration() {
         System.out.println("Testing User Registration:");
-        createAndTestUser("testUser", "testPassword");
-        createAndTestUser("anotherUser", "anotherPassword");
+        createAndTestUser("testUser", "testPassword"); // Register user for the first time
+        createAndTestUser("testUser", "testPassword"); // Attempt to register the same user again
+        createAndTestUser("anotherUser", "anotherPassword"); // Register a different user
     }
 
     public static void testUserLogin() {
@@ -16,10 +22,14 @@ public class UserTest {
     }
 
     private static void createAndTestUser(String username, String password) {
-        User newUser = new User(username, password);
         try {
-            newUser.saveUser();
-            System.out.println("User registered successfully: " + username);
+            if (User.userExists(username)) {
+                System.out.println("User already exists: " + username);
+            } else {
+                User newUser = new User(username, password);
+                newUser.saveUser();
+                System.out.println("User registered successfully: " + username);
+            }
         } catch (IOException e) {
             System.out.println("Failed to register user: " + username);
             e.printStackTrace();
