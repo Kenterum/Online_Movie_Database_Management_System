@@ -47,8 +47,12 @@ After starting the program, the user interface will guide you through creating a
 - `Movie.java`(10%)
 - `MovieTest.java`(5%)
 
-## Video Explanation of the Program
-**Link will be inserted**
+## Video Explanation of Our Program
+
+[Watch the video here](https://youtu.be/YMDX0XAbkSE)
+
+### Imported Note
+*The Video Itself is recorded and finished before the deadline. However after editing the video, export and upload time took 2-3 hours*
 
 ## Authors
 - Suleyman Mammadov
