@@ -1,4 +1,4 @@
-# Movie Database Management Program (MDMS)
+# Movie Database Management System (MDMS)
 
 ## Overview
 The Movie Database program is designed to manage a collection of movies, allowing users to add movies to a wishlist, search, and sort movies in various ways. It provides a graphical user interface for easy interaction with the database.
