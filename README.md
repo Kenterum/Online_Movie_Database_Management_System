@@ -16,20 +16,43 @@ java Main
 ## Testing the Program
 The program comes with a suite of tests for the `Movie`, `MovieDatabase`, and `User` classes. To run the tests, compile the test classes along with the classes they are testing, and then execute the test classes. For example:
 ```
-javac Movie.java MovieTest.java
-java MovieTest
+javac UserTest.java MovieDatabaseTest.java
+java MovieDatabaseTest
 ```
 
-Replace `MovieTest` with `UserTest` or `MovieDatabaseTest` to run the respective tests.
+Replace `MovieDatabaseTest` with `UserTest` to run the respective tests.
 
 ## Using the Program
 After starting the program, the user interface will guide you through creating a wishlist, adding movies, and performing searches and other operations on the movie database.
 
 ## Contributions
-Contributions to the program are welcome. Please fork the repository, make your changes, and submit a pull request for review.
+#### Suleyman Mammadov: (Overall: 50% Contribution)
+- Created Git Structure
+- Applied Traditional way of Architecture
+- `UserInterface.java` (100%)
+- `MainInterface.java`(100%)
+- `Main.java` (60%)
+- `MovieDatabase.java`(20%)
+- `User.java`(100%)
 
+#### Ziba Mursalova: (Overall: 45% Contribution)
+- `MovieDatabase.java`(80%)
+- `MovieTest.java`(95%)
+- `Movie.java`(90%)
+- `MovieDatabaseTest.java`(100%)
+- `UserTest.java`(100%)
+- `Main.java`(40%)
+
+#### Arzum Abdullazada: (Overall: 5% Contribution)
+- `Movie.java`(10%)
+- `MovieTest.java`(5%)
+
+## Video Explanation of the Program
+**Link will be inserted**
 
 ## Authors
-Suleyman Mammadov
-Ziba Mursalova
+- Suleyman Mammadov
+- Ziba Mursalova
+- Arzum Abdullazada
+
 
